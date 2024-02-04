@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'appModel',
     'rest_framework',
     'drf_spectacular',
-    'rest_framework.authtoken'
+    'rest_framework_swagger',       # Swagger 
+    'drf_yasg',                     # Yet Another Swagger generator
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #custom middleware
-    #'users.middleware.TokenAuthenticationMiddleware',
+    'users.middleware.UserAssociationMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
