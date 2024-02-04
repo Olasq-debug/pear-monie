@@ -18,16 +18,17 @@ This is a Django Rest Framework (DRF) application that allows users to manage ex
    git clone https://github.com/Olasq-debug/pear-monie.git
 
 2. Change into the project directory:
-
+   ```bash
    cd pear-monie
 
 3. Create a virtual environment (optional but recommended):
-
-   virtualenv venv or py -m venv venv 
+   ```bash
+   py -m venv venv
 
 4. Activate the virtual environment:
 
    - On Windows:
+     ```bash
         venv\Scripts\activate
     
    - On MacOS/Linux:
