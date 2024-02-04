@@ -24,11 +24,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 from django.conf import settings
-
-router = routers.DefaultRouter()
-
-urlpatterns = router.urls
-
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 
 schema_view = get_schema_view(
@@ -40,13 +36,17 @@ schema_view = get_schema_view(
 )
 
 
-urlpatterns += [
+urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('users.urls')),
     path('api/expenses/', include('expenses_api.urls')),
     path('api/budgets/', include('budgets_api.urls')),
     path('api/token', views.obtain_auth_token),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Optional UI:
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
 
 if settings.DEBUG:
