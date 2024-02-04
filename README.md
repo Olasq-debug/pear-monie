@@ -32,10 +32,11 @@ This is a Django Rest Framework (DRF) application that allows users to manage ex
         venv\Scripts\activate
     
    - On MacOS/Linux:
+   - ```bash
         source venv/bin/activate
 
 5. Install dependencies:
-
+   ```bash
    pip install -r requirements.txt
 
 ### Database Setup:
@@ -49,7 +50,7 @@ This is a Django Rest Framework (DRF) application that allows users to manage ex
 ### Running the Server:
 
 1. Start the development server:
-
+   ```bash
     python manage.py runserver 8000
 
     The application will be accessible at http://localhost:8000/.
@@ -59,7 +60,7 @@ This is a Django Rest Framework (DRF) application that allows users to manage ex
 ### API Authentication
 
 1. Obtain an authentication token by sending a POST request to http://localhost:8000/api/token/ with the superuser credentials.
-
+```bash
 curl -X POST -d "username=your_superuser&password=your_superuser_password" http://localhost:8000/api/token/
 
 ### Using the API
@@ -67,9 +68,9 @@ curl -X POST -d "username=your_superuser&password=your_superuser_password" http:
 1. Make API requests using the obtained token:
 
     Access the user's expenses: GET http://localhost:8000/api/expenses/ (replace your_token with the actual token).
-
+   ```bash
     curl -H "Authorization: Token your_token" http://localhost:8000/api/expenses/
-
+   ```bash
     Access the user's budgets: GET http://localhost:8000/api/budgets/ (replace your_token with the actual token).
 
     curl -H "Authorization: Token your_token" http://localhost:8000/api/budgets/
